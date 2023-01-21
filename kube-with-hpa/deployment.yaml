@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-webapi
+spec:
+  selector:
+    matchLabels:
+      app: kube-webapi
+  template:
+    metadata:
+      labels:
+        app: kube-webapi
+    spec:
+      containers:
+      - name: kube-webapi
+        image: zhidsale/kube-webapi
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
