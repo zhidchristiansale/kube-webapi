@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-with-tls
+spec:
+  selector:
+    app: kube-with-tls
+  ports:
+  - port: 80
+    targetPort: 80

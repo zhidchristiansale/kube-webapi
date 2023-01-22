@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-with-tls
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-with-tls
+  template:
+    metadata:
+      labels:
+        app: kube-with-tls
+    spec:
+      containers:
+      - name: kube-with-tls
+        image: zhidsale/kube-webapi
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
